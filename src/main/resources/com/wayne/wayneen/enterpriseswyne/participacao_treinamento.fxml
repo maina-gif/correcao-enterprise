@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ParticipacaoTreinamentoController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <HBox spacing="10">
+                <TextField fx:id="txtFuncionario" promptText="ID do Funcionário" />
+                <TextField fx:id="txtTreinamento" promptText="ID do Treinamento" />
+                <DatePicker fx:id="dateParticipacao" promptText="Data" />
+                <Button text="Salvar" onAction="#salvarParticipacao"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaParticipacoes">
+            <columns>
+                <TableColumn fx:id="colFuncionario" text="Funcionário"/>
+                <TableColumn fx:id="colTreinamento" text="Treinamento"/>
+                <TableColumn fx:id="colData" text="Data de Participação"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button text="Excluir Selecionado" onAction="#excluirParticipacao"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.CurriculoListController">
+
+    <top>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="📚 Banco de Currículos" style="-fx-font-size: 18px;"/>
+
+            <HBox spacing="8">
+                <TextField fx:id="buscaField"
+                           promptText="Buscar por nome/skills/experiência..."
+                           HBox.hgrow="ALWAYS"/>
+                <TextField fx:id="cargoField" promptText="Cargo"/>
+                <ComboBox fx:id="statusBox" promptText="Status" prefWidth="140"/>
+                <DatePicker fx:id="dePicker" promptText="De"/>
+                <DatePicker fx:id="atePicker" promptText="Até"/>
+                <Button text="Filtrar" onAction="#aplicarFiltro"/>
+                <Button text="Limpar" onAction="#limparFiltro"/>
+                <Button text="Exportar CSV" onAction="#exportarCsv"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tabela" prefHeight="500">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="180"/>
+                <TableColumn fx:id="colCargo" text="Cargo" prefWidth="160"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
+                <TableColumn fx:id="colData" text="Cadastro" prefWidth="110"/>
+                <TableColumn fx:id="colAcoes" text="Ações" prefWidth="220"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

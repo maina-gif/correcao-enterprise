@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ClimaOrganizacionalController" prefWidth="500" prefHeight="400">
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Avaliação de Clima Organizacional" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <TextField fx:id="campoSetor" promptText="Setor" />
+            <TextField fx:id="campoResponsavel" promptText="Responsável" />
+            <TextArea fx:id="campoComentario" promptText="Comentário" prefRowCount="4" />
+            <Spinner fx:id="campoNota" />
+            <DatePicker fx:id="campoData" />
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Cancelar" onAction="#cancelar" />
+                <Button text="Salvar" onAction="#salvar" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.wayne.wayneen.enterpriseswyne.controller.EnviarNotificacaoController"
+      spacing="8">
+
+    <padding>
+        <Insets top="12" right="12" bottom="12" left="12"/>
+    </padding>
+
+    <Label text="Mensagem (280 caracteres):"/>
+    <TextArea fx:id="mensagemArea" prefRowCount="6"/>
+
+    <HBox spacing="8">
+        <Label fx:id="contadorLabel" text="0/280"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnEnviar" text="Enviar" onAction="#enviarNotificacao" disable="true"/>
+        <Button text="Fechar" onAction="#fecharJanela"/>
+    </HBox>
+</VBox>

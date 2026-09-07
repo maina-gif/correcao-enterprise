@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.CalendarioController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <VBox spacing="10" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0"
+          AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0">
+
+        <HBox spacing="10">
+            <DatePicker fx:id="filtroInicio" promptText="Início"/>
+            <DatePicker fx:id="filtroFim" promptText="Fim"/>
+            <ComboBox fx:id="filtroTipo" promptText="Tipo de Evento"/>
+            <Button text="Filtrar" onAction="#carregarEventos"/>
+        </HBox>
+
+        <TableView fx:id="tabelaEventos">
+            <columns>
+                <TableColumn fx:id="colTitulo" text="Título" prefWidth="150"/>
+                <TableColumn fx:id="colData" text="Data" prefWidth="100"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+                <TableColumn fx:id="colOrigem" text="Origem" prefWidth="120"/>
+                <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="300"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

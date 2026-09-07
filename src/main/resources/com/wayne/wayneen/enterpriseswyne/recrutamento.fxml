@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.RecrutamentoController">
+
+    <top>
+        <Label text="📄 Banco de Currículos - Recrutamento"
+               style="-fx-font-size: 18px; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="10">
+                <TextField fx:id="campoNome" promptText="Nome do Candidato" />
+                <TextField fx:id="campoEmail" promptText="Email" />
+            </HBox>
+
+            <HBox spacing="10">
+                <TextField fx:id="campoCargo" promptText="Cargo Pretendido" />
+                <TextField fx:id="campoLink" promptText="Link do Currículo (Drive ou PDF)" />
+            </HBox>
+
+            <HBox spacing="10">
+                <Button text="Salvar" onAction="#salvar"/>
+                <Button text="Excluir" onAction="#excluir"/>
+                <Button text="Limpar" onAction="#limparCampos"/>
+            </HBox>
+
+            <TableView fx:id="tabelaCandidatos" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" />
+                    <TableColumn fx:id="colNome" text="Nome" />
+                    <TableColumn fx:id="colEmail" text="Email" />
+                    <TableColumn fx:id="colCargo" text="Cargo" />
+                    <TableColumn fx:id="colLink" text="Currículo" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

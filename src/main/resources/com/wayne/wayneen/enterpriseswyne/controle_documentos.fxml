@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ExportacaoController"
+            prefWidth="700" prefHeight="600">
+
+    <VBox alignment="TOP_CENTER"
+          spacing="20.0"
+          AnchorPane.topAnchor="20.0"
+          AnchorPane.leftAnchor="20.0"
+          AnchorPane.rightAnchor="20.0">
+
+        <!-- Título principal -->
+        <Label text="Gestão de Documentos"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+        <!-- Seção de Importação -->
+        <VBox spacing="10.0"
+              style="-fx-border-color: lightgray;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Importar Documento"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10.0">
+                <Label text="Título:"/>
+                <TextField fx:id="campoTitulo" promptText="Título do Documento" prefWidth="200"/>
+
+                <Label text="Tipo:"/>
+                <ComboBox fx:id="comboTipo" prefWidth="150"/>
+            </HBox>
+
+            <HBox spacing="10.0">
+                <Label text="Data de Validade:"/>
+                <DatePicker fx:id="campoValidade"/>
+
+                <Label text="Funcionário ID:"/>
+                <TextField fx:id="campoFuncionarioId" promptText="ID" prefWidth="100"/>
+
+                <Button text="Selecionar Arquivo" onAction="#selecionarArquivo"/>
+            </HBox>
+
+            <Label fx:id="labelArquivoSelecionado"
+                   text="Nenhum arquivo selecionado"
+                   style="-fx-text-fill: gray;"/>
+
+            <Button text="Importar Documento" onAction="#importarDocumento" prefWidth="200"/>
+        </VBox>
+
+        <!-- Seção de Filtros -->
+        <VBox spacing="10.0"
+              style="-fx-border-color: lightgray;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Exportar Documentos (com Filtros)"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                <Label text="Funcionário:"/>
+                <TextField fx:id="campoFiltroFuncionario" promptText="Nome ou ID" prefWidth="150"/>
+
+                <Label text="De:"/>
+                <DatePicker fx:id="dataInicio"/>
+
+                <Label text="Até:"/>
+                <DatePicker fx:id="dataFim"/>
+
+                <Button text="Aplicar Filtro" onAction="#aplicarFiltro"/>
+            </HBox>
+        </VBox>
+
+        <!-- Botões de Exportação -->
+        <VBox spacing="10.0" alignment="CENTER">
+            <Button fx:id="btnExportarExcel" text="Exportar para Excel (.xlsx)" onAction="#exportarExcel" prefWidth="300"/>
+            <Button fx:id="btnExportarCSV" text="Exportar para CSV (.csv)" onAction="#exportarCSV" prefWidth="300"/>
+            <Button fx:id="btnExportarPDF" text="Exportar para PDF (.pdf)" onAction="#exportarPDF" prefWidth="300"/>
+            <Button fx:id="btnExportarTudo" text="Exportar Tudo (Excel + PDF + CSV)" onAction="#exportarTudo" prefWidth="300"/>
+            <Button fx:id="btnExportarVencidos" text="Exportar Apenas Vencidos" onAction="#exportarVencidos" prefWidth="300"/>
+        </VBox>
+
+    </VBox>
+</AnchorPane>

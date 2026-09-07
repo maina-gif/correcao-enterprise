@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.wayne.wayneen.enterpriseswyne.controller.RelatorioGraficoController"
+            prefWidth="800" prefHeight="600">
+    <children>
+        <VBox spacing="20" alignment="CENTER" prefWidth="800" prefHeight="600">
+            <Label text="Relatório de Funcionários por Departamento" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <PieChart fx:id="graficoDepartamentos" prefWidth="600" prefHeight="500" />
+        </VBox>
+    </children>
+</AnchorPane>

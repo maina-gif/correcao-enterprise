@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.AgendaCorporativaController"
+            prefWidth="900" prefHeight="600">
+
+    <children>
+        <VBox spacing="15" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Cabeçalho com botões -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="📅 Agenda de Eventos" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="➕ Novo Evento" onAction="#abrirDialogoCadastrarEvento"/>
+                <Button text="📤 Exportar PDF" onAction="#exportarPDF"/>
+                <Button text="📊 Exportar Excel" onAction="#exportarExcel"/>
+            </HBox>
+
+            <!-- Filtros -->
+            <HBox spacing="10">
+                <DatePicker fx:id="filtroData" promptText="Filtrar por Data"/>
+                <TextField fx:id="filtroLocal" promptText="Filtrar por Local"/>
+                <ComboBox fx:id="filtroTipo" promptText="Tipo de Evento">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Todos"/>
+                            <String fx:value="Corporativo"/>
+                            <String fx:value="Reunião"/>
+                            <String fx:value="Treinamento"/>
+                            <String fx:value="Outro"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Button text="🔍 Aplicar Filtro" onAction="#filtrarEventos"/>
+                <Button text="🔄 Limpar" onAction="#carregarEventos"/>
+            </HBox>
+
+            <!-- Tabela -->
+            <TableView fx:id="tabelaEventos" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colTitulo" text="Título" prefWidth="180"/>
+                    <TableColumn fx:id="colTipo" text="Tipo" prefWidth="100"/>
+                    <TableColumn fx:id="colData" text="Data" prefWidth="100"/>
+                    <TableColumn fx:id="colLocal" text="Local" prefWidth="120"/>
+                    <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="300"/>
+                    <TableColumn fx:id="colAlerta" text="⚠️" prefWidth="50"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>

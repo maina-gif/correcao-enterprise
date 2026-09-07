@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ListagemController">
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+            <children>
+                <Label text="Listagem de Funcionários" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+                <TableView fx:id="tabelaFuncionarios" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="colunaId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colunaNome" text="Nome Completo" prefWidth="150"/>
+                        <TableColumn fx:id="colunaCpf" text="CPF" prefWidth="100"/>
+                        <TableColumn fx:id="colunaCargo" text="Cargo" prefWidth="100"/>
+                        <TableColumn fx:id="colunaDepartamento" text="Departamento" prefWidth="100"/>
+                        <TableColumn fx:id="colunaEmail" text="E-mail" prefWidth="150"/>
+                        <TableColumn fx:id="colunaDataAdmissao" text="Data de Admissão" prefWidth="120"/>
+                        <TableColumn fx:id="colunaEditar" text="Editar" prefWidth="80"/>
+                        <TableColumn fx:id="colunaExcluir" text="Excluir" prefWidth="80"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Button text="Exportar PDF" onAction="#exportarPDF"/>
+                    <Button text="Cadastrar Novo" onAction="#abrirTelaCadastro"/>
+                </HBox>
+            </children>
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

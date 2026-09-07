@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.XYChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wayne.wayneen.enterpriseswyne.KpiController">
+    <children>
+        <VBox alignment="CENTER" spacing="20.0" layoutX="30.0" layoutY="30.0" prefWidth="900.0">
+            <children>
+                <Label text="Relatório de KPIs - Wayne Enterprises" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+                <!-- Tempo Médio na Empresa -->
+                <Label fx:id="lblMediaTempo" text="Tempo médio na empresa: " style="-fx-font-size: 16px;" />
+
+                <!-- Gráfico de Cargos -->
+                <BarChart fx:id="chartCargos" title="Cargos Mais Recorrentes" prefHeight="300" prefWidth="800">
+                    <xAxis>
+                        <CategoryAxis label="Cargo" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Quantidade" />
+                    </yAxis>
+                </BarChart>
+
+                <!-- Gráfico de Departamentos -->
+                <BarChart fx:id="chartDepartamentos" title="Departamentos com Maior Rotatividade" prefHeight="300" prefWidth="800">
+                    <xAxis>
+                        <CategoryAxis label="Departamento" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Quantidade" />
+                    </yAxis>
+                </BarChart>
+
+                <Button text="Fechar" onAction="#fecharJanela" style="-fx-background-color: #d32f2f; -fx-text-fill: white;" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

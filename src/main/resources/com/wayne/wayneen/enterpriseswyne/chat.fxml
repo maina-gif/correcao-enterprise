@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ChatController">
+
+    <left>
+        <VBox spacing="8" prefWidth="280" style="-fx-background-color: #f6f7fb;" BorderPane.alignment="CENTER">
+            <TextField fx:id="campoBuscaUsuario" promptText="Buscar usuário..." />
+            <ListView fx:id="listaUsuarios" prefHeight="600"/>
+            <Separator/>
+            <Label text="Conversas"/>
+            <ListView fx:id="listaConversas" prefHeight="400"/>
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+        </VBox>
+    </left>
+
+    <center>
+        <BorderPane>
+            <top>
+                <HBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <Label text="Conversando com:"/>
+                    <Label fx:id="labelDestinatario" style="-fx-font-weight: bold;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="labelTyping" text="" style="-fx-font-style: italic; -fx-text-fill: #666;"/>
+                </HBox>
+            </top>
+
+            <center>
+                <ListView fx:id="listaMensagens" />
+            </center>
+
+            <bottom>
+                <HBox spacing="8">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <TextField fx:id="campoMensagem" promptText="Digite uma mensagem..." HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnEnviar" text="Enviar" onAction="#enviarMensagem"/>
+                </HBox>
+            </bottom>
+        </BorderPane>
+    </center>
+</BorderPane>

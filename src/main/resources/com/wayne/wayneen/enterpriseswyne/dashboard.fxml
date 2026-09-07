@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.XYChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.DashboardController"
+            prefWidth="800" prefHeight="600">
+
+    <VBox layoutX="20" layoutY="20" spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+
+        <!-- Indicadores -->
+        <HBox spacing="40" alignment="CENTER">
+            <VBox spacing="5" alignment="CENTER">
+                <Label text="Total de Funcionários" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                <Label fx:id="totalFuncionariosLabel" text="0" style="-fx-font-size: 18px;" />
+            </VBox>
+
+            <VBox spacing="5" alignment="CENTER">
+                <Label text="Tempo Médio na Empresa" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                <Label fx:id="mediaTempoLabel" text="0 anos" style="-fx-font-size: 18px;" />
+            </VBox>
+
+            <VBox spacing="5" alignment="CENTER">
+                <Label text="Setor com Mais Funcionários" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+                <Label fx:id="setorMaisLabel" text="N/D" style="-fx-font-size: 18px;" />
+            </VBox>
+        </HBox>
+
+        <!-- Gráfico de Barras -->
+        <BarChart fx:id="graficoSetores" title="Funcionários por Setor" prefHeight="400" prefWidth="760">
+            <xAxis>
+                <CategoryAxis fx:id="xAxis" label="Setor" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxis" label="Quantidade" />
+            </yAxis>
+        </BarChart>
+    </VBox>
+
+</AnchorPane>

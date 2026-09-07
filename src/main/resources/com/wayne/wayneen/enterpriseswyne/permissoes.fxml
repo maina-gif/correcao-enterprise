@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.wayne.wayneen.enterpriseswyne.controller.PermissaoController"
+      spacing="10" alignment="CENTER" padding="20">
+
+    <Label text="Gerenciar Permissões" style="-fx-font-size: 18px;"/>
+    <TextField fx:id="campoFuncionalidade" promptText="Funcionalidade (ex: documentos)"/>
+    <CheckBox fx:id="checkVisualizar" text="Pode Visualizar"/>
+    <CheckBox fx:id="checkCriar" text="Pode Criar"/>
+    <CheckBox fx:id="checkEditar" text="Pode Editar"/>
+    <CheckBox fx:id="checkExcluir" text="Pode Excluir"/>
+    <CheckBox fx:id="checkExportar" text="Pode Exportar"/>
+    <Button fx:id="btnSalvar" text="Salvar Permissões" onAction="#salvarPermissao"/>
+</VBox>

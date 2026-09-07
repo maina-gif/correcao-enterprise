@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.EditarEventoController"
+            prefWidth="400" prefHeight="350">
+
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+
+            <Label text="Editar Evento" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+            <TextField fx:id="campoTitulo" promptText="Título do Evento" />
+            <ComboBox fx:id="campoTipo" promptText="Tipo de Evento">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Corporativo"/>
+                        <String fx:value="Reunião"/>
+                        <String fx:value="Treinamento"/>
+                        <String fx:value="Outro"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <DatePicker fx:id="campoData" promptText="Data do Evento" />
+            <TextField fx:id="campoLocal" promptText="Local do Evento" />
+            <TextArea fx:id="campoDescricao" promptText="Descrição" prefRowCount="3" />
+
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Cancelar" onAction="#cancelar"/>
+                <Button text="Salvar Alterações" onAction="#salvarAlteracoes"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

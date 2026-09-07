@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.HistoricoLogController"
+            prefWidth="800" prefHeight="600">
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+        <Label text="📋 Histórico de Login e Ações" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        <TableView fx:id="tabelaLogs" prefHeight="550">
+            <columns>
+                <TableColumn fx:id="colUsuario" text="Usuário" prefWidth="200"/>
+                <TableColumn fx:id="colAcao" text="Ação" prefWidth="250"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="150"/>
+                <TableColumn fx:id="colDataHora" text="Data e Hora" prefWidth="200"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

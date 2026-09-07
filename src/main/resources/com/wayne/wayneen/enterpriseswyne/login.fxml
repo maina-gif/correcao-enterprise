@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="552.0" prefWidth="723.0"
+            xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.LoginController">
+
+    <children>
+        <VBox alignment="CENTER" layoutX="180.0" layoutY="100.0" spacing="15.0">
+            <children>
+                <Label text="Login - Wayne Enterprises" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+                <TextField fx:id="usuarioField" promptText="Usuário"
+                           prefWidth="300" prefHeight="40" />
+
+                <PasswordField fx:id="senhaField" promptText="Senha"
+                               prefWidth="300" prefHeight="40" />
+
+                <Button text="Entrar"
+                        onAction="#realizarLogin"
+                        prefWidth="150" prefHeight="40"
+                        style="-fx-background-color: #0078D7; -fx-text-fill: white;"/>
+            </children>
+            <padding>
+                <Insets top="20" bottom="20" left="20" right="20"/>
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

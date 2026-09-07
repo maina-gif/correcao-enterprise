@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.RestauracaoController"
+            prefWidth="400" prefHeight="250">
+
+    <children>
+        <VBox alignment="CENTER" spacing="15" layoutX="50" layoutY="30">
+            <children>
+                <Label text="Gerenciar Backup e Restauração" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+
+                <PasswordField fx:id="campoSenha" promptText="Digite a senha do banco" />
+
+                <HBox spacing="10">
+                    <children>
+                        <Button fx:id="btnRestaurar" text="Restaurar Backup" onAction="#restaurarBackup" />
+                        <Button text="Cancelar" onAction="#cancelar" />
+                    </children>
+                </HBox>
+
+                <Separator />
+
+                <Button fx:id="btnBackup" text="Fazer Backup" onAction="#fazerBackup" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

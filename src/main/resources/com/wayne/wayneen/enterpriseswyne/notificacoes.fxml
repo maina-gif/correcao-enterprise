@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.NotificacaoController"
+            prefWidth="800" prefHeight="600">
+    <children>
+        <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+              AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+            <Label text="Central de Notificações" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tabelaNotificacoes" prefHeight="500">
+                <columns>
+                    <TableColumn fx:id="colMensagem" text="Mensagem" prefWidth="400"/>
+                    <TableColumn fx:id="colDataHora" text="Data/Hora" prefWidth="200"/>
+                    <TableColumn fx:id="colStatus" text="Lida?" prefWidth="100"/>
+                </columns>
+            </TableView>
+            <Button text="Marcar como Lida" onAction="#marcarComoLida"/>
+        </VBox>
+    </children>
+</AnchorPane>

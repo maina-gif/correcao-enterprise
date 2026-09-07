@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ProcessoSeletivoController">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TextField fx:id="tituloField" promptText="Título"/>
+            <TextField fx:id="descricaoField" promptText="Descrição"/>
+            <DatePicker fx:id="dataInicioPicker" promptText="Data Início"/>
+            <DatePicker fx:id="dataFimPicker" promptText="Data Fim"/>
+            <Button text="Adicionar" onAction="#salvarProcesso"/>
+            <Button text="Excluir Selecionado" onAction="#excluirProcesso"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaProcessos">
+            <columns>
+                <TableColumn fx:id="colunaTitulo" text="Título" prefWidth="180"/>
+                <TableColumn fx:id="colunaDescricao" text="Descrição" prefWidth="280"/>
+                <TableColumn fx:id="colunaDataInicio" text="Data Início" prefWidth="120"/>
+                <TableColumn fx:id="colunaDataFim" text="Data Fim" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

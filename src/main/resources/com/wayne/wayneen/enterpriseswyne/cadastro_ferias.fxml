@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/17.0.2"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.CadastroFeriasController"
+            prefWidth="500" prefHeight="400">
+
+    <children>
+        <Label layoutX="30" layoutY="20" text="Cadastro de Férias"/>
+        <Label layoutX="30" layoutY="60" text="Funcionário ID:"/>
+        <TextField fx:id="funcionarioIdField" layoutX="150" layoutY="55" prefWidth="300"/>
+
+        <Label layoutX="30" layoutY="100" text="Data Início:"/>
+        <DatePicker fx:id="dataInicioPicker" layoutX="150" layoutY="95" prefWidth="200"/>
+
+        <Label layoutX="30" layoutY="140" text="Data Fim:"/>
+        <DatePicker fx:id="dataFimPicker" layoutX="150" layoutY="135" prefWidth="200"/>
+
+        <Label layoutX="30" layoutY="180" text="Observação:"/>
+        <TextArea fx:id="observacaoArea" layoutX="150" layoutY="175" prefWidth="300" prefHeight="100"/>
+
+        <Button text="Salvar" layoutX="200" layoutY="300" onAction="#salvarFerias"/>
+    </children>
+</AnchorPane>

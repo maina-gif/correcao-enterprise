@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.ExclusaoController"
+            prefHeight="200.0" prefWidth="400.0">
+
+    <VBox alignment="CENTER"
+          spacing="20"
+          layoutX="20.0"
+          layoutY="20.0"
+          prefWidth="360.0"
+          AnchorPane.topAnchor="20.0"
+          AnchorPane.leftAnchor="20.0"
+          AnchorPane.rightAnchor="20.0"
+          AnchorPane.bottomAnchor="20.0">
+
+        <padding>
+            <Insets top="20" bottom="20" left="20" right="20"/>
+        </padding>
+
+        <Label text="Tem certeza que deseja excluir este funcionário?"
+               wrapText="true" style="-fx-font-size: 14px;"/>
+
+        <HBox alignment="CENTER" spacing="15">
+            <Button fx:id="cancelarBtn" text="Cancelar" onAction="#cancelar" prefWidth="100"/>
+            <Button fx:id="confirmarBtn" text="Confirmar" onAction="#confirmarExclusao" prefWidth="100"/>
+        </HBox>
+    </VBox>
+</AnchorPane>

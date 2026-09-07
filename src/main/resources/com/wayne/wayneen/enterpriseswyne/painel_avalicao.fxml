@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.PainelAvaliacaoController"
+            prefWidth="900.0" prefHeight="600.0">
+
+    <top>
+        <VBox spacing="10.0" padding="10">
+            <Label text="Painel de Avaliações de Desempenho" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+            <HBox spacing="10.0">
+                <Label text="Filtrar por Funcionário ID:"/>
+                <TextField fx:id="filtroFuncionarioId" promptText="Ex: 1" prefWidth="80"/>
+                <Label text="De:"/>
+                <DatePicker fx:id="dataInicioPicker"/>
+                <Label text="Até:"/>
+                <DatePicker fx:id="dataFimPicker"/>
+                <Button text="Filtrar" onAction="#filtrarAvaliacoes"/>
+                <Button text="Atualizar Lista" onAction="#carregarAvaliacoes"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tabelaAvaliacoes" prefHeight="400.0">
+            <columns>
+                <TableColumn fx:id="colId" text="ID"/>
+                <TableColumn fx:id="colFuncionarioId" text="Funcionário ID"/>
+                <TableColumn fx:id="colData" text="Data"/>
+                <TableColumn fx:id="colPontualidade" text="Pontualidade"/>
+                <TableColumn fx:id="colProdutividade" text="Produtividade"/>
+                <TableColumn fx:id="colTrabalhoEquipe" text="Trabalho em Equipe"/>
+                <TableColumn fx:id="colObservacoes" text="Observações"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

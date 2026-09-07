@@ -1,0 +1,24 @@
+.menu-bar {
+    -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Estilo geral para todos os botões */
+.button {
+    -fx-border-color: black;   /* Borda preta */
+    -fx-border-width: 1px;     /* Espessura da borda */
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 8px 16px;     /* Espaçamento interno */
+    -fx-cursor: hand;          /* Cursor tipo mão */
+    -fx-background-radius: 4px;
+}
+
+/* Efeito hover */
+.button:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* VBox que contém os botões */
+.vbox-botoes {
+    -fx-spacing: 2px; /* Espaçamento entre botões */
+}

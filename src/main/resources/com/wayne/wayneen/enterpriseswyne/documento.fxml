@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.ListarDocumentosController"
+            prefWidth="800" prefHeight="500">
+
+    <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+
+        <Label text="Listagem de Documentos" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <TableView fx:id="tabelaDocumentos" prefHeight="350">
+            <columns>
+                <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="120"/>
+                <TableColumn fx:id="colValidade" text="Validade" prefWidth="120"/>
+                <TableColumn fx:id="colCaminho" text="Arquivo" prefWidth="320"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Button text="Abrir Arquivo" onAction="#abrirDocumento"/>
+            <Button text="Excluir Documento" onAction="#excluirDocumento"/>
+            <Button text="Atualizar Lista" onAction="#carregarDocumentos"/>
+            <Button text="Fechar" onAction="#fecharJanela"/>
+        </HBox>
+
+    </VBox>
+</AnchorPane>

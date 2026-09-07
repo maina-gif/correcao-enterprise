@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.wayne.wayneen.enterpriseswyne.controller.TreinamentoController">
+
+    <top>
+        <Label text="📚 Programa de Treinamentos" style="-fx-font-size: 18px; -fx-padding: 10;" />
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <HBox spacing="10">
+                <TextField fx:id="campoTitulo" promptText="Título do Treinamento" />
+                <ComboBox fx:id="comboTipo">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Interno"/>
+                            <String fx:value="Externo"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </HBox>
+
+            <HBox spacing="10">
+                <TextField fx:id="campoLocal" promptText="Local" />
+                <DatePicker fx:id="campoData" promptText="Data" />
+            </HBox>
+
+            <HBox spacing="10">
+                <Button text="Salvar" onAction="#salvar"/>
+                <Button text="Atualizar" onAction="#atualizar"/>
+                <Button text="Excluir" onAction="#excluir"/>
+                <Button text="Limpar" onAction="#limparCampos"/>
+            </HBox>
+
+            <TableView fx:id="tabelaTreinamentos" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" />
+                    <TableColumn fx:id="colTitulo" text="Título" />
+                    <TableColumn fx:id="colTipo" text="Tipo" />
+                    <TableColumn fx:id="colLocal" text="Local" />
+                    <TableColumn fx:id="colData" text="Data" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+</BorderPane>

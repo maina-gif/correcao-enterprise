@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.NotificacaoController"
+            prefWidth="820.0" prefHeight="520.0">
+
+    <padding>
+        <Insets top="12" right="12" bottom="12" left="12"/>
+    </padding>
+
+    <top>
+        <ToolBar>
+            <Label text="Central de Notificações"/>
+            <!-- (opcional)
+            <Button text="Enviar..." onAction="#abrirFormularioEnvio"/>
+            <Button text="Marcar como lida" onAction="#marcarComoLida"/>
+            -->
+        </ToolBar>
+    </top>
+
+    <center>
+        <!-- Removi columnResizePolicy do FXML (vamos setar no controller) -->
+        <TableView fx:id="tabelaNotificacoes" prefHeight="400.0">
+            <columns>
+                <TableColumn fx:id="colMensagem" text="Mensagem" prefWidth="500.0"/>
+                <TableColumn fx:id="colDataHora" text="Data/Hora" prefWidth="180.0"/>
+                <TableColumn fx:id="colStatus"   text="Lida"      prefWidth="80.0"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>

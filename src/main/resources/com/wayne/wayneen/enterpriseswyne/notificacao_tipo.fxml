@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.NotificacaoController"
+            prefWidth="860" prefHeight="560">
+
+    <top>
+        <VBox spacing="6">
+            <children>
+                <Label text="Tipos de Notificação"
+                       style="-fx-font-size: 18px; -fx-padding: 12 12 0 12; -fx-font-weight: bold;"/>
+                <HBox spacing="8" style="-fx-padding: 0 12 6 12;" alignment="CENTER_LEFT">
+                    <Label text="Buscar:"/>
+                    <TextField fx:id="buscaField" promptText="Filtrar por código ou nome..." HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <children>
+                <!-- Tabela -->
+                <TableView fx:id="tabela" prefHeight="330">
+                    <columns>
+                        <TableColumn fx:id="colCodigo" text="Código" prefWidth="140"/>
+                        <TableColumn fx:id="colNome"   text="Nome"   prefWidth="260"/>
+                        <TableColumn fx:id="colCor"    text="Cor"    prefWidth="140"/>
+                        <TableColumn fx:id="colOrdem"  text="Ordem"  prefWidth="90"/>
+                        <TableColumn fx:id="colAtivo"  text="Ativo"  prefWidth="90"/>
+                    </columns>
+                </TableView>
+
+                <!-- Formulário -->
+                <TitledPane text="Cadastro / Edição" expanded="true">
+                    <content>
+                        <GridPane hgap="12" vgap="10" style="-fx-padding: 12;">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="120" halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                                <ColumnConstraints minWidth="120" halignment="RIGHT"/>
+                                <ColumnConstraints hgrow="SOMETIMES"/>
+                            </columnConstraints>
+
+                            <children>
+                                <Label text="Código:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="codigoField" promptText="INFO / WARN / ERROR / ..." GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                                <TextField fx:id="nomeField" promptText="Informação / Atenção / Erro / ..." GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                                <Label text="Cor (Hex):" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="corHexField" promptText="#2196F3" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="Cor (Picker):" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                                <ColorPicker fx:id="colorPicker" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                                <Label text="Ordem:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <Spinner fx:id="ordemSpinner" editable="true" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Ativo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                                <CheckBox fx:id="ativoCheck" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                            </children>
+                        </GridPane>
+                    </content>
+                </TitledPane>
+            </children>
+
+            <padding>
+                <Insets top="6" right="12" bottom="6" left="12"/>
+            </padding>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox spacing="8" alignment="CENTER_RIGHT" style="-fx-padding: 10 12 12 12;">
+            <children>
+                <Button fx:id="btnNovo" text="Novo" onAction="#novo"/>
+                <Button fx:id="btnSalvar" text="Salvar" defaultButton="true" onAction="#salvar"/>
+                <Button fx:id="btnExcluir" text="Excluir" onAction="#excluir"/>
+                <Separator orientation="VERTICAL"/>
+                <Button text="Ativar/Desativar" onAction="#alternarAtivo"/>
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>

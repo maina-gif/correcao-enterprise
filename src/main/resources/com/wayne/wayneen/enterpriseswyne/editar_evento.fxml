@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.controller.EditarEventoController"
+            prefWidth="500" prefHeight="400">
+
+    <VBox spacing="15" alignment="CENTER" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+        <Label text="Editar Evento" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+        <TextField fx:id="campoTitulo" promptText="Título do Evento"/>
+        <TextArea fx:id="campoDescricao" promptText="Descrição" prefRowCount="3"/>
+        <DatePicker fx:id="campoData"/>
+        <TextField fx:id="campoLocal" promptText="Local"/>
+
+        <Button text="Salvar Alterações" onAction="#salvarAlteracoes" />
+    </VBox>
+</AnchorPane>

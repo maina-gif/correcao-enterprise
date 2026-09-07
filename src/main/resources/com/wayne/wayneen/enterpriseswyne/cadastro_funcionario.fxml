@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="766.0" prefWidth="938.0" stylesheets="estilo.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.wayne.wayneen.enterpriseswyne.controller.CadastroController">
+    <children>
+        <VBox alignment="CENTER" layoutX="245.0" layoutY="185.0" prefHeight="400.0" prefWidth="550.0" spacing="10">
+            <children>
+                <TextField fx:id="nomeField" prefHeight="30.0" prefWidth="616.0" promptText="Nome Completo" />
+                <TextField fx:id="cargoField" promptText="Cargo" />
+                <TextField fx:id="cpfField" promptText="CPF" />
+                <TextField fx:id="departamentoField" promptText="Departamento" />
+                <TextField fx:id="emailField" promptText="E-mail" />
+                <DatePicker fx:id="dataNascimentoPicker" prefHeight="26.0" prefWidth="639.0" promptText="Data de Nascimento" />
+                <DatePicker fx:id="dataAdmissaoPicker" prefHeight="26.0" prefWidth="639.0" promptText="Data de Admissão" />
+                <Button onAction="#selecionarFoto" prefHeight="26.0" prefWidth="546.0" text="Upload Foto" />
+                <Button fx:id="btnUploadCurriculo" onAction="#uploadCurriculo" prefHeight="26.0" prefWidth="546.0" text="Upload Currículo (PDF)" />
+                <Button fx:id="btnUploadContrato" onAction="#uploadContrato" prefHeight="26.0" prefWidth="546.0" text="Upload Contrato (PDF)" />
+                <Button onAction="#salvarFuncionario" prefHeight="30.0" prefWidth="564.0" text="Salvar">
+                    <font><Font name="System Bold" size="14.0" /></font>
+                </Button>
+            </children>
+        </VBox>
+
+        <ImageView fx:id="fotoImageView" fitHeight="193.0" fitWidth="266.0" layoutX="14.0" layoutY="517.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@logo/logo 1.png" />
+            </image>
+        </ImageView>
+
+        <Label layoutX="117.0" layoutY="185.0" prefHeight="26.0" prefWidth="128.0" text="NOME COMPLETO">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+        <Label layoutX="113.0" layoutY="227.0" prefHeight="26.0" prefWidth="134.0" text="CARGO">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+        <Label layoutX="117.0" layoutY="263.0" prefHeight="26.0" prefWidth="128.0" text="CPF">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+        <Label layoutX="114.0" layoutY="299.0" prefHeight="26.0" prefWidth="128.0" text="DEPARTAMENTO">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+        <Label layoutX="115.0" layoutY="334.0" prefHeight="30.0" prefWidth="134.0" text="E-MAIL">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+        <Label layoutX="114.0" layoutY="371.0" prefHeight="26.0" prefWidth="134.0" text="DATA DE NASCIMENTO">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+        <Label layoutX="114.0" layoutY="407.0" prefHeight="26.0" prefWidth="128.0" text="DATA DE ADMISSÃO">
+            <font><Font name="System Bold" size="12.0" /></font>
+        </Label>
+
+        <Label layoutX="286.0" layoutY="108.0" prefHeight="54.0" prefWidth="829.0" text="Cadastro de Funcionário">
+            <font><Font name="System Bold" size="44.0" /></font>
+        </Label>
+
+        <Button layoutX="388.0" layoutY="710.0" onAction="#fazerLogout" prefHeight="37.0" prefWidth="177.0" text="Logout" textFill="#a10a0a">
+            <font><Font name="System Bold" size="16.0" /></font>
+        </Button>
+    </children>
+</AnchorPane>

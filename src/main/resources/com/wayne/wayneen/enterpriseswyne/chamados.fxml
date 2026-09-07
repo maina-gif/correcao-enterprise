@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.wayne.wayneen.enterpriseswyne.ChamadoController" prefWidth="800" prefHeight="600">
+    <VBox spacing="10">
+        <padding>
+            <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+        </padding>
+
+        <Label text="Chamados de Suporte" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+        <HBox spacing="10">
+            <TextField fx:id="campoTitulo" promptText="Título do Chamado" />
+            <TextField fx:id="campoFuncionario" promptText="Funcionário" />
+        </HBox>
+
+        <HBox spacing="10">
+            <ComboBox fx:id="comboStatus" promptText="Status">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Aberto"/>
+                        <String fx:value="Em andamento"/>
+                        <String fx:value="Concluído"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <ComboBox fx:id="comboPrioridade" promptText="Prioridade">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Alta"/>
+                        <String fx:value="Média"/>
+                        <String fx:value="Baixa"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <TextField fx:id="campoData" promptText="Data de Abertura (DD/MM/AAAA)" />
+        </HBox>
+
+        <TextArea fx:id="campoDescricao" promptText="Descrição do problema..." prefHeight="100" />
+
+        <Button text="Salvar Chamado" onAction="#salvarChamado" />
+
+        <TableView fx:id="tabelaChamados">
+            <columns>
+                <TableColumn text="ID" fx:id="colId" />
+                <TableColumn text="Título" fx:id="colTitulo" />
+                <TableColumn text="Funcionário" fx:id="colFuncionario" />
+                <TableColumn text="Status" fx:id="colStatus" />
+                <TableColumn text="Prioridade" fx:id="colPrioridade" />
+                <TableColumn text="Data" fx:id="colData" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

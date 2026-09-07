@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.EquipamentoController"
+            prefWidth="900" prefHeight="600">
+
+    <VBox spacing="15"
+          AnchorPane.topAnchor="10.0"
+          AnchorPane.leftAnchor="10.0"
+          AnchorPane.rightAnchor="10.0"
+          AnchorPane.bottomAnchor="10.0">
+
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+
+        <!-- Título -->
+        <Label text="📦 Controle de Equipamentos"
+               style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+        <!-- Campos de entrada -->
+        <HBox spacing="15">
+            <TextField fx:id="campoTipo" promptText="Tipo do Equipamento" />
+            <TextField fx:id="campoNumeroSerie" promptText="Número de Série" />
+        </HBox>
+
+        <HBox spacing="15">
+            <TextField fx:id="campoResponsavel" promptText="Funcionário Responsável" />
+            <TextField fx:id="campoStatus" promptText="Status" />
+            <DatePicker fx:id="campoDataAquisicao" promptText="Data de Aquisição" />
+        </HBox>
+
+        <!-- Botões -->
+        <HBox spacing="10">
+            <Button text="Salvar" onAction="#salvarEquipamento" />
+            <Button text="Atualizar" onAction="#atualizarEquipamento" />
+            <Button text="Limpar" onAction="#limparCampos" />
+        </HBox>
+
+        <!-- Tabela de equipamentos -->
+        <TableView fx:id="tabelaEquipamentos" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="150"/>
+                <TableColumn fx:id="colNumeroSerie" text="Nº Série" prefWidth="150"/>
+                <TableColumn fx:id="colResponsavel" text="Responsável" prefWidth="150"/>
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                <TableColumn fx:id="colDataAquisicao" text="Aquisição" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

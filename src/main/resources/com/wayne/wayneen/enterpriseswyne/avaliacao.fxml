@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.wayne.wayneen.enterpriseswyne.AvaliacaoController"
+            prefHeight="500.0" prefWidth="700.0">
+
+    <VBox fx:id="formAvaliacao" alignment="CENTER" spacing="10" layoutX="50" layoutY="30" prefWidth="600">
+        <Label text="Cadastro de Avaliação de Desempenho">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+
+        <TextField fx:id="idFuncionarioField" promptText="ID do Funcionário" />
+        <DatePicker fx:id="dataAvaliacaoPicker" promptText="Data da Avaliação" />
+        <TextField fx:id="pontualidadeField" promptText="Pontualidade (0-10)" />
+        <TextField fx:id="produtividadeField" promptText="Produtividade (0-10)" />
+        <TextField fx:id="trabalhoEquipeField" promptText="Trabalho em Equipe (0-10)" />
+        <TextArea fx:id="observacoesArea" promptText="Observações" prefRowCount="3"/>
+
+        <Button text="Salvar Avaliação" onAction="#salvarAvaliacao" />
+    </VBox>
+</AnchorPane>
