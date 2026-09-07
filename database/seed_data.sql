@@ -1,9 +1,5 @@
 -- =====================================================================
--- Dados de teste (seed) — Wayne Enterprises
--- Rode depois de schema.sql. Só dados fictícios, seguro apagar/re-rodar.
---   mysql -u root -p wayne_db < seed_data.sql
--- =====================================================================
-
+-- Dados de teste (seed) 
 USE wayne_db;
 
 -- Cargos
