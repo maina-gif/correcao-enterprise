@@ -1,27 +1,4 @@
--- =====================================================================
--- Wayne Enterprises — Schema do banco (wayne_db)
--- Reconstruído por engenharia reversa do código-fonte (DAOs), já que o
--- projeto original não tinha nenhum script de banco versionado.
---
--- ⚠️ ATENÇÃO — VERSÃO DESTRUTIVA:
--- Este script agora tem DROP TABLE IF EXISTS antes de cada CREATE TABLE.
--- Rodá-lo APAGA e recria todas as 26 tabelas do zero, mesmo que já
--- existam (com dados diferentes, de outra versão, etc.). Isso evita o
--- problema de "tabela antiga com colunas diferentes ficar presa" — mas
--- também significa que TODOS os dados dessas tabelas são perdidos a
--- cada execução. Faça backup antes se já tiver dado real salvo.
---
--- Como usar:
---   mysql -u root -p < schema.sql
--- (ou copie e cole no MySQL Workbench / DBeaver)
---
--- Convenções adotadas:
---   - Toda tabela tem PK auto-incremento `id` (BIGINT ou INT conforme uso)
---   - FKs explícitas onde o código já usa um *_id referenciando outra tabela
---   - VARCHAR com tamanho generoso onde o código não dá pista de limite
---   - Datas: DATE quando só dia importa, DATETIME/TIMESTAMP quando tem hora
---   - utf8mb4 em tudo (evita problema de acento/emoji, comum em pt-BR)
--- =====================================================================
+
 
 CREATE DATABASE IF NOT EXISTS wayne_db
     CHARACTER SET utf8mb4
@@ -31,15 +8,11 @@ USE wayne_db;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
--- ---------------------------------------------------------------------
--- USUÁRIOS DO SISTEMA (login da aplicação)
--- Usada por: LoginController, UsuariosDAOJdbc
--- ---------------------------------------------------------------------
 DROP TABLE IF EXISTS usuarios;
 CREATE TABLE usuarios (
     id             BIGINT AUTO_INCREMENT PRIMARY KEY,
-    usuario        VARCHAR(60)  NOT NULL,               -- login (username)
-    senha          VARCHAR(255) NOT NULL,                -- ⚠️ guardar HASH (bcrypt), nunca texto puro
+    usuario        VARCHAR(60)  NOT NULL,               
+    senha          VARCHAR(255) NOT NULL,               
     nome_completo  VARCHAR(150) NULL,
     email          VARCHAR(150) NULL,
     online         TINYINT(1)   NOT NULL DEFAULT 0,
@@ -49,10 +22,7 @@ CREATE TABLE usuarios (
     UNIQUE KEY uk_usuarios_email (email)
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- FUNCIONÁRIOS
--- Usada por: FuncionarioDAO / FuncionarioDAOMethods (duplicadas, ver README)
--- ---------------------------------------------------------------------
+
 DROP TABLE IF EXISTS funcionarios;
 CREATE TABLE funcionarios (
     id                 INT AUTO_INCREMENT PRIMARY KEY,
@@ -127,9 +97,7 @@ CREATE TABLE beneficios (
 
 -- ---------------------------------------------------------------------
 -- EQUIPAMENTOS (patrimônio/TI)
--- OBS: "funcionario_responsavel" é gravado como texto (nome), não FK —
--- assim está no código hoje. Idealmente seria funcionario_id (INT, FK).
--- ---------------------------------------------------------------------
+
 DROP TABLE IF EXISTS equipamentos;
 CREATE TABLE equipamentos (
     id                        INT AUTO_INCREMENT PRIMARY KEY,
@@ -155,10 +123,7 @@ CREATE TABLE avisos (
 
 -- ---------------------------------------------------------------------
 -- CHAMADOS (suporte/TI)
--- OBS: "data_abertura" é lido/gravado como String no código atual
--- (Chamado.getDataAbertura() é String). Mantido VARCHAR para não quebrar
--- o código hoje — mas o ideal é migrar para DATETIME (ver README).
--- ---------------------------------------------------------------------
+
 DROP TABLE IF EXISTS chamados;
 CREATE TABLE chamados (
     id             INT AUTO_INCREMENT PRIMARY KEY,
@@ -210,11 +175,7 @@ CREATE TABLE notificacao_tipo (
     UNIQUE KEY uk_notificacao_tipo_codigo (codigo)
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
--- LOGS — duas tabelas paralelas existem hoje no código (ver README 4.2:
--- provavelmente deveriam virar uma só). Mantidas separadas aqui só para
--- não quebrar nada, mas avalie migrar log_acoes -> log_auditoria depois.
--- ---------------------------------------------------------------------
+
 DROP TABLE IF EXISTS log_acoes;
 CREATE TABLE log_acoes (
     id       BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -298,13 +259,7 @@ CREATE TABLE participacoes_treinamento (
 ) ENGINE=InnoDB;
 
 -- ---------------------------------------------------------------------
--- EVENTOS (agenda genérica) — usada por EventoDAO
--- ⚠️ EventoCalendarioDAO também aponta para "eventos", mas espera colunas
--- diferentes (data_evento, origem) que NÃO existem aqui. Esse DAO está
--- quebrado/desalinhado — ver README seção 4. Não crie essas colunas só
--- para "consertar por fora"; o certo é corrigir o DAO (ver seção sobre
--- consolidação de Evento/EventoCalendario/EventoCorporativo).
--- ---------------------------------------------------------------------
+-- EVENTOS
 DROP TABLE IF EXISTS eventos;
 CREATE TABLE eventos (
     id         INT AUTO_INCREMENT PRIMARY KEY,
@@ -403,16 +358,7 @@ CREATE TABLE chat_typing (
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- ---------------------------------------------------------------------
--- DADOS INICIAIS (seed) — ajuste antes de rodar em produção!
--- Cria 1 usuário admin de teste. A senha abaixo já é um HASH bcrypt
--- (formato $2a$) da senha "maimai1234" — ou seja, mesmo rodando este
--- script do zero várias vezes (o schema é destrutivo, ver aviso no
--- topo do arquivo), o admin sempre nasce já com hash, nunca em texto
--- puro. Para logar, use o usuário "admin" com a senha "maimai1234".
---
--- Se quiser trocar essa senha padrão: gere um novo hash com
--- GerarHashTemp.java (troque o texto lá) e substitua o valor abaixo.
--- ---------------------------------------------------------------------
+-- DADOS INICIAIS (seed) 
 INSERT INTO usuarios (usuario, senha, nome_completo, email)
 VALUES ('admin', '$2a$10$AG6uk81jootCVFjBfRQGb.bFR3hIrWvfinDJIuyFpBoaPWx0Etr/C', 'Administrador', 'admin@wayne.local')
 ON DUPLICATE KEY UPDATE usuario = usuario;
