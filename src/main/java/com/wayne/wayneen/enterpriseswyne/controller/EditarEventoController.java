@@ -5,6 +5,7 @@ import com.wayne.wayneen.enterpriseswyne.DAO.EventoDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class EditarEventoController {
 
@@ -13,6 +14,10 @@ public class EditarEventoController {
     @FXML private DatePicker campoData;
     @FXML private TextField campoLocal;
     @FXML private ComboBox<String> campoTipo;
+    @FXML
+    private void initialize() {
+        DatePickerUtil.aplicarConversorDeData(campoData);
+    }
 
     private Evento evento;
 

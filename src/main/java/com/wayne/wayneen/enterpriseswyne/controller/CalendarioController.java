@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -34,6 +35,8 @@ public class CalendarioController {
 
     @FXML
     private void initialize() {
+        DatePickerUtil.aplicarConversorDeData(filtroInicio);
+        DatePickerUtil.aplicarConversorDeData(filtroFim);
         configurarTabela();
         carregarTiposNoFiltro();
         filtroInicio.setValue(LocalDate.now().minusDays(15));

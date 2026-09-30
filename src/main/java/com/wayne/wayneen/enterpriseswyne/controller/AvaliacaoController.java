@@ -1,10 +1,11 @@
-package com.wayne.wayneen.enterpriseswyne;
+package com.wayne.wayneen.enterpriseswyne.controller;
 
 
 import com.wayne.wayneen.enterpriseswyne.DAO.AvaliacaoDAO;
 import com.wayne.wayneen.enterpriseswyne.model.Avaliacao;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class AvaliacaoController {
 
@@ -14,6 +15,10 @@ public class AvaliacaoController {
     @FXML private TextField produtividadeField;
     @FXML private TextField trabalhoEquipeField;
     @FXML private TextArea observacoesArea;
+    @FXML
+    private void initialize() {
+        DatePickerUtil.aplicarConversorDeData(dataAvaliacaoPicker);
+    }
 
     @FXML
     private void salvarAvaliacao() {

@@ -1,4 +1,4 @@
-package com.wayne.wayneen.enterpriseswyne;
+package com.wayne.wayneen.enterpriseswyne.controller;
 
 import com.wayne.wayneen.enterpriseswyne.DAO.ChamadoDAO;
 import com.wayne.wayneen.enterpriseswyne.model.Chamado;

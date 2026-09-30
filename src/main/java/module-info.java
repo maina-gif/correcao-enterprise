@@ -25,6 +25,7 @@ module com.wayne.wayneen.enterpriseswyne {
     exports com.wayne.wayneen.enterpriseswyne.controller;
     exports com.wayne.wayneen.enterpriseswyne.model;
     exports com.wayne.wayneen.enterpriseswyne.DAO;
+    exports com.wayne.wayneen.enterpriseswyne.util;
 
 
 

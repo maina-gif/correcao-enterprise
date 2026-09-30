@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class TreinamentoController {
 
@@ -31,6 +32,7 @@ public class TreinamentoController {
 
     @FXML
     public void initialize() {
+        DatePickerUtil.aplicarConversorDeData(campoData);
         // Bind das colunas
         colId.setCellValueFactory(cell -> new SimpleIntegerProperty(cell.getValue().getId()).asObject());
         colTitulo.setCellValueFactory(cell -> new SimpleStringProperty(safe(cell.getValue().getTitulo())));

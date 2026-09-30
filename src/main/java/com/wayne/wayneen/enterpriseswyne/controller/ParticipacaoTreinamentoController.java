@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class ParticipacaoTreinamentoController {
 
@@ -24,6 +25,7 @@ public class ParticipacaoTreinamentoController {
 
     @FXML
     public void initialize() throws SQLException {
+        DatePickerUtil.aplicarConversorDeData(dateParticipacao);
         colFuncionario.setCellValueFactory(data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getIdFuncionario()).asObject());
         colTreinamento.setCellValueFactory(data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getIdTreinamento()).asObject());
         colData.setCellValueFactory(data -> new javafx.beans.property.SimpleObjectProperty<>(data.getValue().getDataParticipacao()));

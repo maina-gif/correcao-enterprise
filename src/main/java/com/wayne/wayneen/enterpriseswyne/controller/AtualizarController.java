@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class AtualizarController {
 
@@ -17,6 +18,11 @@ public class AtualizarController {
     @FXML private TextField departamentoField;
     @FXML private TextField emailField;
     @FXML private DatePicker dataAdmissaoPicker;
+    @FXML
+    private void initialize() {
+        DatePickerUtil.aplicarConversorDeData(dataAdmissaoPicker);
+    }
+
 
     /** Chamado pela listagem para preencher os dados do funcionário */
     public void carregarFuncionario(Funcionario funcionario) {

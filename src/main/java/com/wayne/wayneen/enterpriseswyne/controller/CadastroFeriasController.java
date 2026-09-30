@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.time.LocalDate;
 import com.wayne.wayneen.enterpriseswyne.model.Ferias;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class CadastroFeriasController {
 
@@ -12,6 +13,11 @@ public class CadastroFeriasController {
     @FXML private DatePicker dataInicioPicker;
     @FXML private DatePicker dataFimPicker;
     @FXML private TextArea observacaoArea;
+    @FXML
+    private void initialize() {
+        DatePickerUtil.aplicarConversorDeData(dataInicioPicker);
+        DatePickerUtil.aplicarConversorDeData(dataFimPicker);
+    }
 
     @FXML
     private void salvarFerias() {

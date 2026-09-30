@@ -1,6 +1,7 @@
-package com.wayne.wayneen.enterpriseswyne;
+package com.wayne.wayneen.enterpriseswyne.controller;
 
 import com.wayne.wayneen.enterpriseswyne.DAO.EquipamentoDAO;
+import com.wayne.wayneen.enterpriseswyne.Equipamento;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
@@ -11,6 +12,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class EquipamentoController {
 
@@ -32,6 +34,7 @@ public class EquipamentoController {
 
     @FXML
     public void initialize() {
+        DatePickerUtil.aplicarConversorDeData(campoDataAquisicao);
         colId.setCellValueFactory(data -> new ReadOnlyObjectWrapper<>(data.getValue().getId()));
         colTipo.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getTipo()));
         colNumeroSerie.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getNumeroSerie()));

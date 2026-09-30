@@ -13,6 +13,7 @@ import javafx.scene.layout.Region;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class ProcessoSeletivoController {
 
@@ -32,6 +33,8 @@ public class ProcessoSeletivoController {
 
     @FXML
     public void initialize() {
+        DatePickerUtil.aplicarConversorDeData(dataInicioPicker);
+        DatePickerUtil.aplicarConversorDeData(dataFimPicker);
         colunaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
         colunaDescricao.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         colunaDataInicio.setCellValueFactory(new PropertyValueFactory<>("dataInicio"));

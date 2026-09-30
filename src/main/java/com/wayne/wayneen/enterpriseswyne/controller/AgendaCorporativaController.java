@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java.time.LocalDate;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class AgendaCorporativaController {
 
@@ -29,7 +30,7 @@ public class AgendaCorporativaController {
         colData.setCellValueFactory(data -> new javafx.beans.property.SimpleObjectProperty<>(data.getValue().getDataEvento()));
         colTipo.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTipoEvento()));
         colLocal.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getLocal()));
-
+        DatePickerUtil.aplicarConversorDeData(dpDataEvento);
         listarEventos();
     }
 

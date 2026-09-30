@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
+import com.wayne.wayneen.enterpriseswyne.util.DatePickerUtil;
 
 public class AdicionarEventosController {
 
@@ -15,6 +16,10 @@ public class AdicionarEventosController {
     @FXML private DatePicker campoData;
     @FXML private TextField campoLocal;
     @FXML private ComboBox<String> campoTipo;
+    @FXML
+    private void initialize() {
+        DatePickerUtil.aplicarConversorDeData(campoData);
+    }
 
     @FXML
     private void salvarEvento() {
