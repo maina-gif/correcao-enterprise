@@ -9,31 +9,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ajuste as constantes abaixo para casar com os nomes das suas colunas reais
- * na tabela `eventos`.
+ * DAO de leitura da tabela `eventos`, usado pela tela de calendário (CalendarioController).
  *
- * Exemplos comuns:
- * - Data: "data_evento"  OU  "data"
- * - Título: "titulo"     OU  "nome"
- * - Tipo: "tipo"         OU  "categoria"
- * - Origem: "origem"     OU  "fonte"
- * - Descrição: "descricao" OU "detalhes"
+ * Colunas reais da tabela (conferir em database/schema.sql):
+ * id, titulo, descricao, data, local, tipo.
+ *
+ * CORREÇÃO: a versão anterior buscava as colunas "data_evento" e "origem",
+ * que não existem na tabela, e qualquer consulta lançava SQLException.
+ * - A data agora lê a coluna real "data" (com apelido data_evento no SELECT,
+ *   pra não precisar mudar a leitura do ResultSet).
+ * - A tabela não tem coluna de origem. Como a tela exibe uma coluna "Origem",
+ *   o SELECT devolve o valor fixo 'Evento' para todos os registros.
  */
 public class EventoCalendarioDAO {
 
-    // ====== MAPA DE COLUNAS (EDITE CONFORME SEU BANCO) ======
+    // ====== MAPA DE COLUNAS (nomes reais da tabela `eventos`) ======
     private static final String TABELA     = "eventos";
     private static final String COL_ID     = "id";
     private static final String COL_TITULO = "titulo";
-    private static final String COL_DATA   = "data_evento"; // troque para "data" se for o seu caso
+    private static final String COL_DATA   = "data";
     private static final String COL_TIPO   = "tipo";
-    private static final String COL_ORIGEM = "origem";
     private static final String COL_DESC   = "descricao";
-    // =========================================================
+
+    // Valor fixo usado como "origem", já que a tabela não tem essa coluna
+    private static final String ORIGEM_PADRAO = "Evento";
+    // ================================================================
 
     /**
      * Obtém conexão tentando compatibilizar projetos que usam
      * ConnectionFactory.getConnection() ou ConnectionFactory.getConexao().
+     * ATENÇÃO: o pacote da ConnectionFactory está escrito como texto abaixo.
+     * Se a classe estiver em outro pacote, isso só falha em tempo de execução.
      */
     private Connection getConn() throws SQLException {
         try {
@@ -59,6 +65,10 @@ public class EventoCalendarioDAO {
         }
     }
 
+    /**
+     * Lista os eventos entre as datas informadas, opcionalmente filtrando por tipo.
+     * Qualquer filtro nulo (ou tipo "Todos") é ignorado.
+     */
     public List<EventoCalendario> listar(LocalDate inicio, LocalDate fim, String tipo) throws SQLException {
         List<EventoCalendario> lista = new ArrayList<>();
 
@@ -66,9 +76,9 @@ public class EventoCalendarioDAO {
                 .append("SELECT ")
                 .append(COL_ID).append(" AS id, ")
                 .append(COL_TITULO).append(" AS titulo, ")
-                .append(COL_DATA).append(" AS data_evento, ")
+                .append(COL_DATA).append(" AS data_evento, ")          // coluna real "data", apelidada
                 .append(COL_TIPO).append(" AS tipo, ")
-                .append(COL_ORIGEM).append(" AS origem, ")
+                .append("'").append(ORIGEM_PADRAO).append("' AS origem, ") // valor fixo, não é coluna
                 .append(COL_DESC).append(" AS descricao ")
                 .append("FROM ").append(TABELA)
                 .append(" WHERE 1=1 ");
@@ -114,9 +124,13 @@ public class EventoCalendarioDAO {
         return lista;
     }
 
+    /**
+     * Lista os tipos de evento distintos cadastrados, para preencher o filtro da tela.
+     */
     public List<String> listarTiposExistentes() throws SQLException {
         List<String> tipos = new ArrayList<>();
-        String sql = "SELECT DISTINCT " + COL_TIPO + " AS tipo FROM " + TABELA + " WHERE " + COL_TIPO + " IS NOT NULL ORDER BY " + COL_TIPO;
+        String sql = "SELECT DISTINCT " + COL_TIPO + " AS tipo FROM " + TABELA
+                + " WHERE " + COL_TIPO + " IS NOT NULL ORDER BY " + COL_TIPO;
 
         try (Connection conn = getConn();
              PreparedStatement ps = conn.prepareStatement(sql);
