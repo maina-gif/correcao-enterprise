@@ -2,7 +2,7 @@
 
 Sistema desktop em **Java + JavaFX**, com persistência em **MySQL/MariaDB**, desenvolvido como projeto acadêmico/pessoal de aprendizado.
 
-> Este README documenta o estado atual do projeto, o que já foi corrigido, e a jornada de depuração — deixado de propósito bem detalhado, porque boa parte do aprendizado aqui foi justamente resolver os problemas, não só o código final.
+> Este README documenta o estado atual do projeto, o que já foi corrigido, e a jornada de depuração. deixado de propósito bem detalhado, porque boa parte do aprendizado aqui foi justamente resolver os problemas, não só o código final.
 
 ---
 
